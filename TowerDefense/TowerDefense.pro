@@ -8,7 +8,7 @@ QT       += core gui
 QT       += multimedia
 QT       += network
 #TEST
-
+#TETETE
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = TowerDefense
