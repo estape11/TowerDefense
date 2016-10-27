@@ -4,11 +4,13 @@
 #include <QMainWindow>
 
 namespace Ui {
+
 class MainWindow;
 }
 
 class MainWindow : public QMainWindow
-{
+{//dbfd
+
     Q_OBJECT
 
 public:
