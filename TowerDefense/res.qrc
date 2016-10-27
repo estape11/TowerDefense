@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>wizardTower.png</file>
+        <file>fireball.png</file>
+        <file>orc.png</file>
+        <file>infernalTower.png</file>
+        <file>arquerTower.png</file>
+        <file>blueFire.png</file>
+        <file>greenFire.png</file>
+        <file>ArcherGeneticKingdom.png</file>
+        <file>ArtilleroGeneticKingdom.png</file>
+        <file>ArtilleroUpgrade.png</file>
+        <file>ArcherUpgrade.png</file>
+        <file>GrassGeneticKingdom.jpg</file>
+        <file>MagicBallUpgrade.png</file>
+        <file>MagicBall.png</file>
+        <file>CastleBridge.png</file>
+        <file>mercenary.png</file>
+        <file>hola.gif</file>
+    </qresource>
+    <qresource prefix="/sounds">
+        <file>fireSound.mp3</file>
+        <file>backgroundSound.mp3</file>
+    </qresource>
+</RCC>
