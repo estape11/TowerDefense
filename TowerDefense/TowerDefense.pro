@@ -7,6 +7,7 @@
 QT       += core gui
 QT       += multimedia
 QT       += network
+QT       += multimedia
 #TEST
 #TETETE
 #fdsdfg

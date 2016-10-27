@@ -36,7 +36,7 @@ Game::Game(): QGraphicsView(){
 
     initializeMapStatus();
 
-
+    \
     // alter window
     setFixedSize(1200,660);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

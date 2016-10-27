@@ -8,6 +8,7 @@
 #include "Tower.h"
 #include <QTimer>
 #include "Score.h"
+#include <QMediaPlayer>
 
 class Game: public QGraphicsView{
     Q_OBJECT
