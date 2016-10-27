@@ -18,7 +18,7 @@ using namespace std;
 
 Game::Game(): QGraphicsView(){
 
-    QPixmap background(":/images/GrassGeneticKingdom.jpg");
+    QPixmap background(":/images/fnd_cesped.jpg");
     QPixmap resizeBackground = background.scaled(QSize(1200,660),  Qt::IgnoreAspectRatio);
     // create a scene
     scene = new QGraphicsScene(this);

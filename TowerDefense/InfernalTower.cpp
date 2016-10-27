@@ -14,7 +14,13 @@ InfernalTower::InfernalTower(QGraphicsItem *parent)
 
 void InfernalTower::fire()
 {
-    QPixmap fired(":/images/MagicBallUpgrade.png");
+    //set the sound of shoot
+    QMediaPlayer * shootsound = new QMediaPlayer();
+    shootsound->setMedia(QUrl("qrc:/sounds/shootsound.mp3"));
+    shootsound->setVolume(50);
+    shootsound->play();
+
+    QPixmap fired(":/images/bala2.png");
     QPixmap resizeFired = fired.scaled(QSize(40,40),  Qt::KeepAspectRatio);
     Bullet * bullet = new Bullet();
     bullet->setPixmap(QPixmap(resizeFired));

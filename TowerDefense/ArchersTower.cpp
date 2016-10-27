@@ -19,9 +19,15 @@ void ArchersTower::fire()
     Bullet * bullet2 = new Bullet();
     Bullet * bullet3 = new Bullet();
 
+    //set the sound of arrow
+    QMediaPlayer * arrowsound = new QMediaPlayer();
+    arrowsound->setMedia(QUrl("qrc:/sounds/fireSound.mp3"));
+    arrowsound->setVolume(50);
+    arrowsound->play();
+
     //set the graphics
 
-    QPixmap fired(":/images/MagicBall.png");
+    QPixmap fired(":/images/arrowizq.png");
     QPixmap resizeFired = fired.scaled(QSize(40,40),  Qt::KeepAspectRatio);
     bullet1->setPixmap(QPixmap(resizeFired));
     bullet2->setPixmap(QPixmap(resizeFired));

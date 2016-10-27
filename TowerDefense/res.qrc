@@ -29,11 +29,16 @@
         <file>Minotauro.png</file>
         <file>Ogro izq.png</file>
         <file>Harpia izq.png</file>
-        <file>arrow.png</file>
         <file>Bala.png</file>
+        <file>fnd_cesped.jpg</file>
+        <file>arrow.png</file>
+        <file>arrowizq.png</file>
+        <file>balaizq.png</file>
+        <file>bala2.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file>fireSound.mp3</file>
         <file>backgroundSound.mp3</file>
+        <file>shootsound.mp3</file>
     </qresource>
 </RCC>
