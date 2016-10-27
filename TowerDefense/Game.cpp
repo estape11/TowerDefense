@@ -11,7 +11,7 @@
 #include <QBrush>
 #include "Castle.h"
 #include <QGraphicsPixmapItem>
-
+#include "Mercenary.h"
 #include "iostream"
 #include "stdio.h"
 using namespace std;
@@ -195,7 +195,10 @@ void Game::initializeMapStatus()
 void Game::spawnEnemy(){
     //span an enemy
     Enemy* enemy=new Enemy(pointsToFollow,kind);
+    Mercenary* mercenary=new Mercenary(pointsToFollow,kind);
     enemy->setPos(pointsToFollow[0]);
+    mercenary->setPos(pointsToFollow[0]);
+    scene->addItem(mercenary);
     scene->addItem(enemy);
     enemiesSpawned+=1;
     if (enemiesSpawned>=maxNumberOfEnemies){

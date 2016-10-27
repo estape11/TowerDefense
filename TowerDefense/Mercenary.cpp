@@ -1,4 +1,4 @@
-#include "Enemy.h"
+#include "Mercenary.h"
 #include <QPixmap>
 #include <QTimer>
 #include <qmath.h>
@@ -9,18 +9,11 @@
 using namespace std;
 extern Game * game;
 
-Enemy::Enemy (QList<QPointF> pointsToFollow,bool kind, QGraphicsItem *parent):QObject(),QGraphicsPixmapItem(parent){
+Mercenary::Mercenary (QList<QPointF> pointsToFollow,QGraphicsItem *parent):QObject(),QGraphicsPixmapItem(parent){
     // set graphics
-    if (kind==true){
-    QPixmap orc(":images/orc.png");
-    QPixmap resizeOrc = orc.scaled(QSize(40,40), Qt::KeepAspectRatio);
-    setPixmap(resizeOrc);}
-
-    else{
         QPixmap orc(":images/hola.gif");
         QPixmap resizeOrc = orc.scaled(QSize(40,40), Qt::KeepAspectRatio);
         setPixmap(resizeOrc);}
-
 
     // set points
     points << pointsToFollow;
@@ -40,16 +33,16 @@ Enemy::Enemy (QList<QPointF> pointsToFollow,bool kind, QGraphicsItem *parent):QO
     timer->start(150);
 }
 
-void Enemy::rotateToPoint(QPointF p){
+void Mercenary::rotateToPoint(QPointF p){
     QLineF ln(pos(),p);
     setRotation(-1 * ln.angle());}
 
-void Enemy::deleteEnemy(){
+void Mercenary::deleteEnemy(){
     scene()->removeItem(this);
     delete this;
 }
 
-void Enemy::move_forward(){
+void Mercenary::move_forward(){
     // if close to dest, rotate to next dest
     QLineF ln(pos(),dest);
     if (ln.length() < 5){
@@ -80,15 +73,15 @@ void Enemy::move_forward(){
 
 ////////////GETTERS & SETTERS///////////
 
-int Enemy::getLife() const{return life;}
-void Enemy::setLife(int value){life = value;}
-int Enemy::getXp() {return xp;}
-int Enemy::getYp(){return yp;}
-void Enemy::setXp(Enemy* enemy){
-    xp =enemy->x();
+int Mercenary::getLife() const{return life;}
+void Mercenary::setLife(int value){life = value;}
+int Mercenary::getXp() {return xp;}
+int Mercenary::getYp(){return yp;}
+void Mercenary::setXp(Mercenary* Mercenary){
+    xp =Mercenary->x();
     //cout<<"x: " << xp<<endl;
                                }
-void Enemy::setYp(Enemy* enemy){
-    yp =enemy->y();
+void Mercenary::setYp(Mercenary* Mercenary){
+    yp =Mercenary->y();
     //cout<<"y: " << yp<<endl;
                                }

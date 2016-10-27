@@ -28,7 +28,9 @@ SOURCES += main.cpp\
     ArchersTower.cpp \
     Score.cpp \
     Castle.cpp \
-    Pathfinding.cpp
+    Pathfinding.cpp \
+    Mercenary.cpp \
+    Ogres.cpp
 
 HEADERS  += mainwindow.h \
     Enemy.h \
@@ -41,7 +43,9 @@ HEADERS  += mainwindow.h \
     ArchersTower.h \
     Score.h \
     Castle.h \
-    Pathfinding.h
+    Pathfinding.h \
+    Mercenary.h \
+    Ogres.h
 
 FORMS    += mainwindow.ui
 
