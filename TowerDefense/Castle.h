@@ -9,3 +9,4 @@ public:
     Castle(QGraphicsItem * parent=0);
  };
 #endif // CASTLE_H
+//Hola
