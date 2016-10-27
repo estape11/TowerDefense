@@ -17,6 +17,20 @@
         <file>CastleBridge.png</file>
         <file>mercenary.png</file>
         <file>hola.gif</file>
+        <file>Mercenario izq 1.png</file>
+        <file>Mercenario izq 2.png</file>
+        <file>Mercenario izq 3.png</file>
+        <file>Mercenario izq 4.png</file>
+        <file>Mercenario izq 5.png</file>
+        <file>Mercenario izq 6.png</file>
+        <file>Mercenario izq 7.png</file>
+        <file>Mercenario izq 8.png</file>
+        <file>Mercenario izq 9.png</file>
+        <file>Minotauro.png</file>
+        <file>Ogro izq.png</file>
+        <file>Harpia izq.png</file>
+        <file>arrow.png</file>
+        <file>Bala.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file>fireSound.mp3</file>
