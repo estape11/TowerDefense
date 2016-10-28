@@ -1,7 +1,6 @@
 #include "ArchersTower.h"
-#include "Game.h"
-#include <QTimer>
-#include "Bullet.h"
+
+
 extern Game* game;
 
 ArchersTower::ArchersTower(QGraphicsItem *parent)
@@ -27,7 +26,7 @@ void ArchersTower::fire()
 
     //set the graphics
 
-    QPixmap fired(":/images/arrowizq.png");
+    QPixmap fired(":/images/blueFire.png");
     QPixmap resizeFired = fired.scaled(QSize(40,40),  Qt::KeepAspectRatio);
     bullet1->setPixmap(QPixmap(resizeFired));
     bullet2->setPixmap(QPixmap(resizeFired));
@@ -49,7 +48,25 @@ void ArchersTower::fire()
       game->scene->addItem(bullet3);
 }
 
-void ArchersTower::aquire_target()
-{
-   Tower::aquire_target();
+void ArchersTower::mousePressEvent(QGraphicsSceneMouseEvent* event){
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("title");
+    msgBox.setText("Question");
+    msgBox.setStandardButtons(QMessageBox::Yes);
+    msgBox.addButton(QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::No);
+    if(msgBox.exec() == QMessageBox::Yes){
+
+        QPixmap upgrade(":/images/ArcherUpgrade.png");
+        QPixmap resizeUpgrade = upgrade.scaled(QSize(60,60),  Qt::IgnoreAspectRatio);
+        setPixmap(QPixmap(resizeUpgrade));
+
+      cout<<"si lo presiono"<<endl;
+    }
+    else {
+       cout<<"NO lo presiono"<<endl;
+    }
 }
+
+
+void ArchersTower::aquire_target(){Tower::aquire_target();}

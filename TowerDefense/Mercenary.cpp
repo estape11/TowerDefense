@@ -13,7 +13,7 @@ Mercenary::Mercenary (QList<QPointF> pointsToFollow,QGraphicsItem *parent):QObje
     // set graphics
         QPixmap orc(":images/hola.gif");
         QPixmap resizeOrc = orc.scaled(QSize(40,40), Qt::KeepAspectRatio);
-        setPixmap(resizeOrc);}
+        setPixmap(resizeOrc);
 
     // set points
     points << pointsToFollow;
@@ -77,11 +77,11 @@ int Mercenary::getLife() const{return life;}
 void Mercenary::setLife(int value){life = value;}
 int Mercenary::getXp() {return xp;}
 int Mercenary::getYp(){return yp;}
-void Mercenary::setXp(Mercenary* Mercenary){
-    xp =Mercenary->x();
+void Mercenary::setXp(Mercenary* mercenary){
+    xp =mercenary->x();
     //cout<<"x: " << xp<<endl;
                                }
-void Mercenary::setYp(Mercenary* Mercenary){
-    yp =Mercenary->y();
+void Mercenary::setYp(Mercenary* mercenary){
+    yp =mercenary->y();
     //cout<<"y: " << yp<<endl;
                                }

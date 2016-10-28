@@ -21,7 +21,7 @@ Tower::Tower(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent){
                << QPoint(1,3) << QPoint(0,2) << QPoint(0,1);
 
     // scale points
-    int SCALE_FACTOR = 75;
+    int SCALE_FACTOR = 55;
     for (size_t i = 0, n = points.size(); i < n; i++){
         points[i] *= SCALE_FACTOR;
     }

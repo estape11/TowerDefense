@@ -9,6 +9,24 @@
 #include <QTimer>
 #include "Score.h"
 #include <QMediaPlayer>
+#include <QGraphicsScene>
+#include "InfernalTower.h"
+#include "Enemy.h"
+#include "BuildInfernalTowerIcon.h"
+#include "BuildArchersTower.h"
+#include "ArchersTower.h"
+#include <QMediaPlayer>
+#include <QUrl>
+#include <QImage>
+#include <QBrush>
+#include "Castle.h"
+#include <QGraphicsPixmapItem>
+#include "Mercenary.h"
+#include "iostream"
+#include "stdio.h"
+#include "CoinImage.h"
+#include "CoinValue.h"
+using namespace std;
 
 class Game: public QGraphicsView{
     Q_OBJECT
@@ -32,12 +50,13 @@ public:
     Tower * building;
     QTimer* spawnTimer;
     Score* score;
+    CoinValue* coinValue;
+    CoinImage* coin;
     int enemiesSpawned;
     int maxNumberOfEnemies;
     int waves;
     QList<QPointF> pointsToFollow;
     bool mapStatus[11][20];
-    bool kind=true;
 
 public slots:
     void spawnEnemy();

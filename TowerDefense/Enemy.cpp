@@ -9,17 +9,11 @@
 using namespace std;
 extern Game * game;
 
-Enemy::Enemy (QList<QPointF> pointsToFollow,bool kind, QGraphicsItem *parent):QObject(),QGraphicsPixmapItem(parent){
-    // set graphics
-    if (kind==true){
+Enemy::Enemy (QList<QPointF> pointsToFollow, QGraphicsItem *parent):QObject(),QGraphicsPixmapItem(parent){
+
     QPixmap orc(":images/orc.png");
     QPixmap resizeOrc = orc.scaled(QSize(40,40), Qt::KeepAspectRatio);
-    setPixmap(resizeOrc);}
-
-    else{
-        QPixmap orc(":images/hola.gif");
-        QPixmap resizeOrc = orc.scaled(QSize(40,40), Qt::KeepAspectRatio);
-        setPixmap(resizeOrc);}
+    setPixmap(resizeOrc);
 
 
     // set points

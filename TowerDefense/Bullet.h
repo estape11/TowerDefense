@@ -4,6 +4,18 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QGraphicsItem>
+#include <QPixmap>
+#include <QTimer>
+#include <qmath.h> // qSin, qCos, qTan
+#include "Game.h"
+#include <QList>
+#include "Enemy.h"
+#include <typeinfo>
+#include "stdio.h"
+#include "iostream"
+#include "CoinValue.h"
+
+using namespace std;
 
 
 class Bullet: public QObject, public QGraphicsPixmapItem{

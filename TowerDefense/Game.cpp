@@ -1,20 +1,4 @@
 #include "Game.h"
-#include <QGraphicsScene>
-#include "InfernalTower.h"
-#include "Enemy.h"
-#include "BuildInfernalTowerIcon.h"
-#include "BuildArchersTower.h"
-#include "ArchersTower.h"
-#include <QMediaPlayer>
-#include <QUrl>
-#include <QImage>
-#include <QBrush>
-#include "Castle.h"
-#include <QGraphicsPixmapItem>
-#include "Mercenary.h"
-#include "iostream"
-#include "stdio.h"
-using namespace std;
 
 Game::Game(): QGraphicsView(){
 
@@ -53,6 +37,12 @@ Game::Game(): QGraphicsView(){
     score=new Score();
     score->setPos(1000,2);
     scene->addItem(score);
+    coinValue=new CoinValue();
+    coinValue->setPos(850,2);
+    scene->addItem(coinValue);
+    coin=new CoinImage();
+    coin->setPos(810,15);
+    scene->addItem(coin);
 
     createWave(waves);
     waves++;
@@ -194,8 +184,8 @@ void Game::initializeMapStatus()
 
 void Game::spawnEnemy(){
     //span an enemy
-    Enemy* enemy=new Enemy(pointsToFollow,kind);
-    Mercenary* mercenary=new Mercenary(pointsToFollow,kind);
+    Enemy* enemy=new Enemy(pointsToFollow);
+    Mercenary* mercenary=new Mercenary(pointsToFollow);
     enemy->setPos(pointsToFollow[0]);
     mercenary->setPos(pointsToFollow[0]);
     scene->addItem(mercenary);
@@ -203,5 +193,4 @@ void Game::spawnEnemy(){
     enemiesSpawned+=1;
     if (enemiesSpawned>=maxNumberOfEnemies){
        spawnTimer->disconnect();}
-    kind=(!kind);
 }

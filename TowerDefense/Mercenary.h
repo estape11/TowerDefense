@@ -16,8 +16,8 @@ public:
     //int Pathfinding[](int x,int y);
     int xp;
     int yp;
-    void setYp(Enemy* enemy);
-    void setXp(Enemy* enemy);
+    void setYp(Mercenary* mercenary);
+    void setXp(Mercenary* mercenary);
     int getYp();
     int getXp() ;
 

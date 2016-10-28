@@ -13,7 +13,7 @@ Ogres::Ogres (QList<QPointF> pointsToFollow,QGraphicsItem *parent):QObject(),QGr
     // set graphics
         QPixmap orc(":images/hola.gif");
         QPixmap resizeOrc = orc.scaled(QSize(40,40), Qt::KeepAspectRatio);
-        setPixmap(resizeOrc);}
+        setPixmap(resizeOrc);
 
     // set points
     points << pointsToFollow;

@@ -3,6 +3,13 @@
 
 
 #include "Tower.h"
+#include "Game.h"
+#include <QTimer>
+#include "Bullet.h"
+#include<QMessageBox>
+#include "iostream"
+#include "stdio.h"
+using namespace std;
 
 class ArchersTower: public Tower{
     Q_OBJECT
@@ -10,6 +17,7 @@ class ArchersTower: public Tower{
 public:
     ArchersTower(QGraphicsItem * parent=0);
     void fire();
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
 public slots:
     void aquire_target();
 };

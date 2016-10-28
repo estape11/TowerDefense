@@ -9,7 +9,7 @@
 class Enemy: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
-    Enemy(QList<QPointF> pointsToFollow,bool kind, QGraphicsItem * parent=0);
+    Enemy(QList<QPointF> pointsToFollow, QGraphicsItem * parent=0);
     void rotateToPoint(QPointF p);
     void deleteEnemy();
     int getLife() const;
@@ -24,7 +24,7 @@ public:
 
 public slots:
     void move_forward();
-private:
+protected:
     QList<QPointF> points;
     QPointF dest;
     int point_index;

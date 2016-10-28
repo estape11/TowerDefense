@@ -7,7 +7,6 @@
 QT       += core gui
 QT       += multimedia
 QT       += network
-QT       += multimedia
 #TEST
 #TETETE
 #fdsdfg
@@ -31,7 +30,9 @@ SOURCES += main.cpp\
     Castle.cpp \
     Pathfinding.cpp \
     Mercenary.cpp \
-    Ogres.cpp
+    Ogres.cpp \
+    CoinImage.cpp \
+    CoinValue.cpp
 
 HEADERS  += mainwindow.h \
     Enemy.h \
@@ -46,7 +47,9 @@ HEADERS  += mainwindow.h \
     Castle.h \
     Pathfinding.h \
     Mercenary.h \
-    Ogres.h
+    Ogres.h \
+    CoinImage.h \
+    CoinValue.h
 
 FORMS    += mainwindow.ui
 

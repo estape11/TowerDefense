@@ -1,14 +1,5 @@
 #include "Bullet.h"
-#include <QPixmap>
-#include <QTimer>
-#include <qmath.h> // qSin, qCos, qTan
-#include "Game.h"
-#include <QList>
-#include "Enemy.h"
-#include <typeinfo>
-#include "stdio.h"
-#include "iostream"
-using namespace std;
+
 extern Game * game; //theres is an external global obect called game
 
 Bullet::Bullet(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent){
@@ -40,6 +31,7 @@ void Bullet::move(){
             if(flag->getLife()==0){
                 flag->deleteEnemy();
                 game->score->increase();
+                game->coinValue->increase();
                 return;
             }
    return;}}

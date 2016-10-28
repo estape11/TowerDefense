@@ -35,6 +35,7 @@
         <file>arrowizq.png</file>
         <file>balaizq.png</file>
         <file>bala2.png</file>
+        <file>coin.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file>fireSound.mp3</file>
