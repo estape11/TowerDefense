@@ -16,7 +16,7 @@ Game::Game(): QGraphicsView(){
     cursor = nullptr;
     building = nullptr;
     setMouseTracking(true);
-    waves=50;
+    waves=10;
 
     initializeMapStatus();
 
@@ -58,6 +58,11 @@ Game::Game(): QGraphicsView(){
     Castle* castle= new Castle();
     castle->setPos(0,0);
     scene->addItem(castle);
+
+    bFlag=nullptr;
+
+
+
 
 }
 
@@ -107,7 +112,32 @@ void Game::mousePressEvent(QMouseEvent *event){
         updateMapStatus(x,y,false);
         printMapStatus();
         cursor = nullptr;
+        int xp=event->x()-((event->x()%60));
+        int yp=event->y()-((event->y()%60));
+
+
+        QPixmap to(":/images/ArtilleroGeneticKingdom.png");
+        QPixmap resizeTo = to.scaled(QSize(60,60),  Qt::IgnoreAspectRatio);
+        QIcon ButtonIcon(resizeTo);
+        bFlag= new QPushButton("", this);
+        QColor transparent_color(0,0,0,0);
+        QPalette button_palette(bFlag->palette());
+
+        button_palette.setColor(QPalette::Button, transparent_color);
+        bFlag->setPalette(button_palette);
+        bFlag->setGeometry(QRect(QPoint(xp,yp),QSize(60, 60)));
+        bFlag->setIcon(ButtonIcon);
+        bFlag->setIconSize(resizeTo.rect().size());
+        bFlag->setFixedSize(resizeTo.rect().size());
+        cout<<"BITON"<<endl;
+        bFlag->show();
+        connect(bFlag, SIGNAL (released()), this, SLOT (handleButton()));
+
+
+
+        bFlag=nullptr;
         building = nullptr;
+
     }
     else {
         QGraphicsView::mousePressEvent(event);
@@ -182,6 +212,47 @@ void Game::initializeMapStatus()
     printMapStatus();
 }
 
+void Game::createButtom(){
+
+
+
+
+}
+
+void Game::handleButton(){
+    printmessage();
+}
+
+void Game::printmessage(){
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("Upgrade");
+    msgBox.setIcon(QMessageBox::Question);
+    msgBox.setText("Do you want to upgrade this Tower to lvl ");
+    msgBox.setInformativeText("It costs 150 gold");
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::No);
+
+    if(msgBox.exec() == QMessageBox::Yes){;
+            QMessageBox info;
+            info.setWindowTitle("Congrats !!");
+            info.setIcon(QMessageBox::Information);
+            info.setText("Successful progress update");
+            info.exec();
+
+
+            }
+            else{
+                QMessageBox info;
+                info.setWindowTitle("Not enough gold");
+                info.setIcon(QMessageBox::Information);
+                info.setText("You dont have enough gold to upgrade this tower");
+                info.setInformativeText("It costs  gold, and you have ");
+                info.setStandardButtons(QMessageBox::Ok);
+                info.setDefaultButton(QMessageBox::Ok);
+                info.exec();
+            }
+    }
+
 void Game::spawnEnemy(){
     //span an enemy
     Enemy* enemy=new Enemy(pointsToFollow);
@@ -194,3 +265,5 @@ void Game::spawnEnemy(){
     if (enemiesSpawned>=maxNumberOfEnemies){
        spawnTimer->disconnect();}
 }
+
+

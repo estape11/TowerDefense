@@ -1,7 +1,5 @@
-
 #ifndef GAME_H
 #define GAME_H
-
 #include <QGraphicsView>
 #include <QMouseEvent>
 #include <QGraphicsPixmapItem>
@@ -26,6 +24,8 @@
 #include "stdio.h"
 #include "CoinImage.h"
 #include "CoinValue.h"
+#include <QPushButton>
+#include <QMessageBox>
 using namespace std;
 
 class Game: public QGraphicsView{
@@ -57,9 +57,13 @@ public:
     int waves;
     QList<QPointF> pointsToFollow;
     bool mapStatus[11][20];
+    QPushButton* bFlag;
+    void createButtom();
+    void printmessage();
 
 public slots:
     void spawnEnemy();
+    void handleButton();
 
 };
 

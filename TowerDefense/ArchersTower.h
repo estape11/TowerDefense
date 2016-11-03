@@ -17,7 +17,6 @@ class ArchersTower: public Tower{
 public:
     ArchersTower(QGraphicsItem * parent=0);
     void fire();
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
 public slots:
     void aquire_target();
 };

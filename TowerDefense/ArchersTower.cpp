@@ -9,6 +9,7 @@ ArchersTower::ArchersTower(QGraphicsItem *parent)
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(aquire_target()));
     timer->start(1000);
+
 }
 
 void ArchersTower::fire()
@@ -46,26 +47,6 @@ void ArchersTower::fire()
     game->scene->addItem(bullet1);
      game->scene->addItem(bullet2);
       game->scene->addItem(bullet3);
-}
-
-void ArchersTower::mousePressEvent(QGraphicsSceneMouseEvent* event){
-    QMessageBox msgBox;
-    msgBox.setWindowTitle("title");
-    msgBox.setText("Question");
-    msgBox.setStandardButtons(QMessageBox::Yes);
-    msgBox.addButton(QMessageBox::No);
-    msgBox.setDefaultButton(QMessageBox::No);
-    if(msgBox.exec() == QMessageBox::Yes){
-
-        QPixmap upgrade(":/images/ArcherUpgrade.png");
-        QPixmap resizeUpgrade = upgrade.scaled(QSize(60,60),  Qt::IgnoreAspectRatio);
-        setPixmap(QPixmap(resizeUpgrade));
-
-      cout<<"si lo presiono"<<endl;
-    }
-    else {
-       cout<<"NO lo presiono"<<endl;
-    }
 }
 
 
