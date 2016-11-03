@@ -33,6 +33,11 @@ void InfernalTower::fire()
     game->scene->addItem(bullet);
 }
 
+void InfernalTower::printMEE(){
+    cout<<"METODO DE INFERNAL"<<endl;
+
+}
+
 void InfernalTower::aquire_target()
 {
    Tower::aquire_target();

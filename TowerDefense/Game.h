@@ -26,6 +26,8 @@
 #include "CoinValue.h"
 #include <QPushButton>
 #include <QMessageBox>
+#include "BuildMagicianTower.h"
+#include "MagicianTower.h"
 using namespace std;
 
 class Game: public QGraphicsView{
@@ -48,6 +50,7 @@ public:
     QGraphicsScene * scene;
     QGraphicsPixmapItem * cursor;
     Tower * building;
+    Tower* building2;
     QTimer* spawnTimer;
     Score* score;
     CoinValue* coinValue;
@@ -58,7 +61,7 @@ public:
     QList<QPointF> pointsToFollow;
     bool mapStatus[11][20];
     QPushButton* bFlag;
-    void createButtom();
+    void createButtom(int x, int y,Tower* pcursor);
     void printmessage();
 
 public slots:

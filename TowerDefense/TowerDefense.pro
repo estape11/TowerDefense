@@ -30,7 +30,9 @@ SOURCES += main.cpp\
     Mercenary.cpp \
     Ogres.cpp \
     CoinImage.cpp \
-    CoinValue.cpp
+    CoinValue.cpp \
+    BuildMagicianTower.cpp \
+    MagicianTower.cpp
 
 HEADERS  += mainwindow.h \
     Enemy.h \
@@ -47,7 +49,9 @@ HEADERS  += mainwindow.h \
     Mercenary.h \
     Ogres.h \
     CoinImage.h \
-    CoinValue.h
+    CoinValue.h \
+    BuildMagicianTower.h \
+    MagicianTower.h
 
 FORMS    += mainwindow.ui
 

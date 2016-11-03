@@ -6,6 +6,9 @@
 #include <QGraphicsItem>
 #include <QPointF>
 #include <QObject>
+#include "iostream"
+#include "stdio.h"
+using namespace std;
 
 class Tower:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT

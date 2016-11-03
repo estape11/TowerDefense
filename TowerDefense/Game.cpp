@@ -15,6 +15,7 @@ Game::Game(): QGraphicsView(){
     // set cursor
     cursor = nullptr;
     building = nullptr;
+    building2=nullptr;
     setMouseTracking(true);
     waves=10;
 
@@ -50,20 +51,19 @@ Game::Game(): QGraphicsView(){
     // test code
     BuildInfernalTowerIcon * in = new BuildInfernalTowerIcon();
     BuildArchersTower * ar = new BuildArchersTower();
+    BuildMagicianTower* mg= new BuildMagicianTower();
     in->setPos(480,590);
     ar->setPos(580,590);
+    mg->setPos(680,590);
     scene->addItem(in);
     scene->addItem(ar);
+    scene->addItem(mg);
 
     Castle* castle= new Castle();
     castle->setPos(0,0);
     scene->addItem(castle);
 
     bFlag=nullptr;
-
-
-
-
 }
 
 void Game::setCursor(QString filename){
@@ -96,6 +96,7 @@ void Game::mousePressEvent(QMouseEvent *event){
         QList<QGraphicsItem *> items = cursor->collidingItems();
         for (size_t i = 0, n = items.size(); i < n; i++){
             if (dynamic_cast<Tower*>(items[i])){
+                building2=(dynamic_cast<Tower*>(items[i]));
                 return;
             }
         }
@@ -111,31 +112,12 @@ void Game::mousePressEvent(QMouseEvent *event){
         cout<<y<<endl;
         updateMapStatus(x,y,false);
         printMapStatus();
-        cursor = nullptr;
+
         int xp=event->x()-((event->x()%60));
         int yp=event->y()-((event->y()%60));
+        createButtom(xp,yp,building2);
 
-
-        QPixmap to(":/images/ArtilleroGeneticKingdom.png");
-        QPixmap resizeTo = to.scaled(QSize(60,60),  Qt::IgnoreAspectRatio);
-        QIcon ButtonIcon(resizeTo);
-        bFlag= new QPushButton("", this);
-        QColor transparent_color(0,0,0,0);
-        QPalette button_palette(bFlag->palette());
-
-        button_palette.setColor(QPalette::Button, transparent_color);
-        bFlag->setPalette(button_palette);
-        bFlag->setGeometry(QRect(QPoint(xp,yp),QSize(60, 60)));
-        bFlag->setIcon(ButtonIcon);
-        bFlag->setIconSize(resizeTo.rect().size());
-        bFlag->setFixedSize(resizeTo.rect().size());
-        cout<<"BITON"<<endl;
-        bFlag->show();
-        connect(bFlag, SIGNAL (released()), this, SLOT (handleButton()));
-
-
-
-        bFlag=nullptr;
+        cursor = nullptr;
         building = nullptr;
 
     }
@@ -169,12 +151,10 @@ void Game::updateMapStatus(int i, int j, bool place)
 
 }
 
-int Game::getCurrentBuildingPosX(Tower* building)
-{
+int Game::getCurrentBuildingPosX(Tower* building){
     return building->x()/60;
 }
-int Game::getCurrentBuildingPosY(Tower* building)
-{
+int Game::getCurrentBuildingPosY(Tower* building){
     return building->y()/60;
 }
 
@@ -212,14 +192,38 @@ void Game::initializeMapStatus()
     printMapStatus();
 }
 
-void Game::createButtom(){
+void Game::createButtom(int x, int y,Tower* pcursor){
 
 
+    QPixmap to(":/images/ArtilleroGeneticKingdom.png");
+    QPixmap resizeTo = to.scaled(QSize(60,60),  Qt::IgnoreAspectRatio);
+    QIcon ButtonIcon(resizeTo);
+    bFlag= new QPushButton("", this);
+
+    QPalette pal = bFlag->palette();
+    pal.setColor(QPalette::Button, QColor(Qt::transparent));
+
+    bFlag->setAutoFillBackground(true);
+
+    bFlag->setPalette(pal);
+    bFlag->setGeometry(QRect(QPoint(x,y),QSize(60, 60)));
+    bFlag->setIcon(ButtonIcon);
+    bFlag->setIconSize(resizeTo.rect().size());
+    bFlag->setFixedSize(resizeTo.rect().size());
+    bFlag->setFlat(true);
+    bFlag->update();
+    cout<<"BITON"<<endl;
+    bFlag->show();
+    connect(bFlag, SIGNAL (released()), this, SLOT (handleButton()));
+    bFlag=nullptr;
 
 
 }
 
 void Game::handleButton(){
+    InfernalTower* boob=(dynamic_cast<InfernalTower*>(building2));
+    boob->printMEE();
+    building=nullptr;
     printmessage();
 }
 
@@ -238,8 +242,6 @@ void Game::printmessage(){
             info.setIcon(QMessageBox::Information);
             info.setText("Successful progress update");
             info.exec();
-
-
             }
             else{
                 QMessageBox info;
@@ -265,5 +267,4 @@ void Game::spawnEnemy(){
     if (enemiesSpawned>=maxNumberOfEnemies){
        spawnTimer->disconnect();}
 }
-
 

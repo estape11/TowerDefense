@@ -8,6 +8,7 @@ class InfernalTower: public Tower{
 public:
     InfernalTower(QGraphicsItem * parent=0);
     void fire();
+    void printMEE();
 public slots:
     void aquire_target();
 };
