@@ -2,6 +2,9 @@
 #include "Game.h"
 #include <QTimer>
 #include "Bullet.h"
+#include <QMessageBox>
+#include <QString>
+#include "QString"
 extern Game* game;
 
 InfernalTower::InfernalTower(QGraphicsItem *parent)
@@ -10,6 +13,9 @@ InfernalTower::InfernalTower(QGraphicsItem *parent)
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(aquire_target()));
     timer->start(1000);
+    lvl=1;
+    upgradeCost= 150;
+    nextlvl=2;
 }
 
 void InfernalTower::fire()
@@ -33,12 +39,64 @@ void InfernalTower::fire()
     game->scene->addItem(bullet);
 }
 
-void InfernalTower::printMEE(){
-    cout<<"METODO DE INFERNAL"<<endl;
+void InfernalTower::printMEE(){cout<<"METODO DE INFERNAL"<<endl;}
 
+int InfernalTower::getNextlvl() const
+{
+    return nextlvl;
+}
+
+void InfernalTower::setNextlvl(int value)
+{
+    nextlvl = value;
 }
 
 void InfernalTower::aquire_target()
 {
    Tower::aquire_target();
 }
+
+int InfernalTower::getLvl() const
+{
+    return lvl;
+}
+
+void InfernalTower::setLvl(int value)
+{
+    lvl = value;
+}
+
+int InfernalTower::getUpgradeCost() const
+{
+    return upgradeCost;
+}
+
+void InfernalTower::setUpgradeCost(int value)
+{
+    upgradeCost = value;
+}
+
+
+void InfernalTower::printmessage(){
+
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("title");
+    msgBox.setText("Question");
+    msgBox.setStandardButtons(QMessageBox::Yes);
+    msgBox.addButton(QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::No);
+    if (msgBox.exec()== QMessageBox::Yes){
+        cout<<"eleccion si"<<endl;
+        if (upgradeCost >= upgradeCost){
+              cout<<"es igualo mayor"<<endl;
+        }
+        else{
+            cout<<"es menor"<<endl;
+        }
+    }
+    else{
+        cout<<"Eleccion no"<<endl;
+    }
+}
+
+

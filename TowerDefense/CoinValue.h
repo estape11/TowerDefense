@@ -2,6 +2,7 @@
 #define COINVALUE_H
 
 
+
 #include <QGraphicsTextItem>
 
 class CoinValue: public QGraphicsTextItem{

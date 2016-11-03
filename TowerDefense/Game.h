@@ -62,7 +62,7 @@ public:
     bool mapStatus[11][20];
     QPushButton* bFlag;
     void createButtom(int x, int y,Tower* pcursor);
-    void printmessage();
+
 
 public slots:
     void spawnEnemy();

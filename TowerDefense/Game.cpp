@@ -115,6 +115,7 @@ void Game::mousePressEvent(QMouseEvent *event){
 
         int xp=event->x()-((event->x()%60));
         int yp=event->y()-((event->y()%60));
+
         createButtom(xp,yp,building2);
 
         cursor = nullptr;
@@ -222,38 +223,10 @@ void Game::createButtom(int x, int y,Tower* pcursor){
 
 void Game::handleButton(){
     InfernalTower* boob=(dynamic_cast<InfernalTower*>(building2));
-    boob->printMEE();
+    boob->printmessage();
     building=nullptr;
-    printmessage();
 }
 
-void Game::printmessage(){
-    QMessageBox msgBox;
-    msgBox.setWindowTitle("Upgrade");
-    msgBox.setIcon(QMessageBox::Question);
-    msgBox.setText("Do you want to upgrade this Tower to lvl ");
-    msgBox.setInformativeText("It costs 150 gold");
-    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-    msgBox.setDefaultButton(QMessageBox::No);
-
-    if(msgBox.exec() == QMessageBox::Yes){;
-            QMessageBox info;
-            info.setWindowTitle("Congrats !!");
-            info.setIcon(QMessageBox::Information);
-            info.setText("Successful progress update");
-            info.exec();
-            }
-            else{
-                QMessageBox info;
-                info.setWindowTitle("Not enough gold");
-                info.setIcon(QMessageBox::Information);
-                info.setText("You dont have enough gold to upgrade this tower");
-                info.setInformativeText("It costs  gold, and you have ");
-                info.setStandardButtons(QMessageBox::Ok);
-                info.setDefaultButton(QMessageBox::Ok);
-                info.exec();
-            }
-    }
 
 void Game::spawnEnemy(){
     //span an enemy
