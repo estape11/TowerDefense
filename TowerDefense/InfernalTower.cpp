@@ -78,6 +78,15 @@ void InfernalTower::setUpgradeCost(int value)
 
 
 void InfernalTower::printmessage(){
+
+    /**
+     * @brief msgBox
+     */
+
+
+
+
+
     QMessageBox msgBox;
     msgBox.setWindowTitle("Upgrade");
     msgBox.setIcon(QMessageBox::Question);
