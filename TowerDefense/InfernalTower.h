@@ -3,15 +3,15 @@
 
 #include "Tower.h"
 
-class InfernalTower: public Tower, public QString{
+class InfernalTower: public Tower{
     Q_OBJECT
 
 public:
-    InfernalTower(QGraphicsItem * parent=0);
+    InfernalTower();
     void fire();
     void printMEE();
     int lvl;
-    int upgradeCost;
+    static int upgradeCost;
     int nextlvl;
 
     void printmessage();
@@ -24,6 +24,7 @@ public:
 
     int getNextlvl() const;
     void setNextlvl(int value);
+
 
 public slots:
     void aquire_target();
