@@ -78,25 +78,39 @@ void InfernalTower::setUpgradeCost(int value)
 
 
 void InfernalTower::printmessage(){
-
     QMessageBox msgBox;
-    msgBox.setWindowTitle("title");
-    msgBox.setText("Question");
-    msgBox.setStandardButtons(QMessageBox::Yes);
-    msgBox.addButton(QMessageBox::No);
+    msgBox.setWindowTitle("Upgrade");
+    msgBox.setIcon(QMessageBox::Question);
+    msgBox.setText("Do you want to upgrade this Tower to lvl ");
+    msgBox.setInformativeText("It costs 150 gold");
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
     msgBox.setDefaultButton(QMessageBox::No);
-    if (msgBox.exec()== QMessageBox::Yes){
-        cout<<"eleccion si"<<endl;
-        if (upgradeCost >= upgradeCost){
-              cout<<"es igualo mayor"<<endl;
+
+    if(msgBox.exec() == QMessageBox::Yes){
+        cout<<" uC"<<endl;
+
+        cout<<typethis->upgradeCost<<endl;
+        cout<<" uC cV"<<endl;
+        cout<<game->coinValue->getCoins()<<endl;
+        if(upgradeCost <= game->coinValue->getCoins()){
+            cout<<"listo"<<endl;
         }
-        else{
-            cout<<"es menor"<<endl;
-        }
+           /* QMessageBox info;
+            info.setWindowTitle("Congrats !!");
+            info.setIcon(QMessageBox::Information);
+            info.setText("Successful progress update");
+            info.exec();*/
+            }
+            else{
+                QMessageBox info;
+                info.setWindowTitle("Not enough gold");
+                info.setIcon(QMessageBox::Information);
+                info.setText("You dont have enough gold to upgrade this tower");
+                info.setInformativeText("It costs  gold, and you have ");
+                info.setStandardButtons(QMessageBox::Ok);
+                info.setDefaultButton(QMessageBox::Ok);
+                info.exec();
+            }
     }
-    else{
-        cout<<"Eleccion no"<<endl;
-    }
-}
 
 
