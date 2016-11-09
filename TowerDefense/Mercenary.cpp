@@ -116,10 +116,6 @@ void Mercenary::setVida(int value)
     vida = value;
 }
 
-//int Enemy::Pathfinding[](int x,int y)
-//{
-//  game->mapStatus;
-//}
 
 ////////////GETTERS & SETTERS///////////
 
@@ -127,11 +123,5 @@ int Mercenary::getLife() const{return life;}
 void Mercenary::setLife(int value){life = value;}
 int Mercenary::getXp() {return xp;}
 int Mercenary::getYp(){return yp;}
-void Mercenary::setXp(Mercenary* mercenary){
-    xp =mercenary->x();
-    //cout<<"x: " << xp<<endl;
-                               }
-void Mercenary::setYp(Mercenary* mercenary){
-    yp =mercenary->y();
-    //cout<<"y: " << yp<<endl;
-                               }
+void Mercenary::setXp(Mercenary* mercenary){ xp =mercenary->x();}
+void Mercenary::setYp(Mercenary* mercenary){yp =mercenary->y();}

@@ -5,6 +5,14 @@
 #include <QObject>
 #include <QList> // list << element
 #include <QPointF>
+#include <QPixmap>
+#include <QTimer>
+#include <qmath.h>
+#include <QDebug>
+#include "Game.h"
+#include "stdio.h"
+#include "iostream"
+using namespace std;
 
 class Enemy: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT

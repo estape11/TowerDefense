@@ -1,12 +1,5 @@
 #include "Enemy.h"
-#include <QPixmap>
-#include <QTimer>
-#include <qmath.h>
-#include <QDebug>
-#include "Game.h"
-#include "stdio.h"
-#include "iostream"
-using namespace std;
+
 extern Game * game;
 
 Enemy::Enemy (QList<QPointF> pointsToFollow, QGraphicsItem *parent):QObject(),QGraphicsPixmapItem(parent){
@@ -61,27 +54,17 @@ void Enemy::move_forward(){
     setPos(x()+dx, y()+dy);
     setXp(this);
     setYp(this);
-
-    //points.append(QPointF(1090-destination,540-destination));
-    //destination+=60;
 }
 
-//int Enemy::Pathfinding[](int x,int y)
-//{
-  //  game->mapStatus;
-//}
+
+
 
 ////////////GETTERS & SETTERS///////////
+
 
 int Enemy::getLife() const{return life;}
 void Enemy::setLife(int value){life = value;}
 int Enemy::getXp() {return xp;}
 int Enemy::getYp(){return yp;}
-void Enemy::setXp(Enemy* enemy){
-    xp =enemy->x();
-    //cout<<"x: " << xp<<endl;
-                               }
-void Enemy::setYp(Enemy* enemy){
-    yp =enemy->y();
-    //cout<<"y: " << yp<<endl;
-                               }
+void Enemy::setXp(Enemy* enemy){xp =enemy->x();}
+void Enemy::setYp(Enemy* enemy){yp =enemy->y();}

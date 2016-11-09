@@ -12,8 +12,6 @@ public:
     Ogres(QList<QPointF> pointsToFollow,QGraphicsItem * parent=0);
     void rotateToPoint(QPointF p);
     void deleteEnemy();
-    int getLife() const;
-    void setLife(int value);
     //int Pathfinding[](int x,int y);
     int xp;
     int yp;
@@ -22,6 +20,21 @@ public:
     int getYp();
     int getXp() ;
 
+    int getVida() const;
+    void setVida(int value);
+
+    int getResisArti() const;
+    void setResisArti(int value);
+
+    int getResisFlechas() const;
+    void setResisFlechas(int value);
+
+    int getResisMagia() const;
+    void setResisMagia(int value);
+
+    int getVelocidad() const;
+    void setVelocidad(int value);
+
 public slots:
     void move_forward();
 private:
@@ -29,8 +42,11 @@ private:
     QPointF dest;
     int point_index;
     int destination;
-    int life;
-
+    int vida;
+    int resisArti;
+    int resisFlechas;
+    int resisMagia;
+    int velocidad;
 };
 
 #endif // OGRES_H

@@ -66,9 +66,59 @@ void Ogres::move_forward(){
     //destination+=60;
 }
 
+int Ogres::getVelocidad() const
+{
+    return velocidad;
+}
+
+void Ogres::setVelocidad(int value)
+{
+    velocidad = value;
+}
+
+int Ogres::getResisMagia() const
+{
+    return resisMagia;
+}
+
+void Ogres::setResisMagia(int value)
+{
+    resisMagia = value;
+}
+
+int Ogres::getResisFlechas() const
+{
+    return resisFlechas;
+}
+
+void Ogres::setResisFlechas(int value)
+{
+    resisFlechas = value;
+}
+
+int Ogres::getResisArti() const
+{
+    return resisArti;
+}
+
+void Ogres::setResisArti(int value)
+{
+    resisArti = value;
+}
+
+int Ogres::getVida() const
+{
+    return vida;
+}
+
+void Ogres::setVida(int value)
+{
+    vida = value;
+}
+
 //int Enemy::Pathfinding[](int x,int y)
 //{
-  //  game->mapStatus;
+//  game->mapStatus;
 //}
 
 ////////////GETTERS & SETTERS///////////
