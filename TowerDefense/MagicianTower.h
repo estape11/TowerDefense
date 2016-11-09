@@ -21,7 +21,7 @@ public:
     int lvl;
     int getLvl() const;
     void setLvl(int value);
-    void askForUpgrade();
+
 
 
 public slots:

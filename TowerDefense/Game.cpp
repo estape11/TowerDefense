@@ -203,6 +203,9 @@ void Game::spawnEnemy(){
     //span an enemy
     Enemy* enemy=new Enemy(pointsToFollow);
     enemy->setPos(pointsToFollow[0]);
+    Mercenary* mer=new Mercenary(pointsToFollow);
+    mer->setPos(pointsToFollow[0]);
+    scene->addItem(mer);
     scene->addItem(enemy);
     enemiesSpawned+=1;
     if (enemiesSpawned>=maxNumberOfEnemies){

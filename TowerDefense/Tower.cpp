@@ -62,24 +62,13 @@ void Tower::fire(){
 
 
 void Tower::aquire_target(){
-    // get a list of all enemies that collide with attack_area, find the closest one
-    // and set it's position as the attack_dest
-
-    // get a list of all enemies within attack_area
     QList<QGraphicsItem *> colliding_items = attack_area->collidingItems();
-
-    // assume tower does not have a target, unless we find one
     has_target = false;
 
-    // find the closest Enemy
     double closest_dist = 300;
     QPointF closest_pt(0,0);
     for (size_t i = 0, n = colliding_items.size(); i < n; ++i){
-
-        // make sure it is an enemy
         Enemy * enemy = dynamic_cast<Enemy *>(colliding_items[i]);
-
-        // see if distance is closer
         if (enemy){
             double this_dist = distanceTo(colliding_items[i]);
             if (this_dist < closest_dist){
@@ -115,6 +104,11 @@ void Tower::printing()
     cout<<"Esta torre tiene lvl: "<<getLevel()<<endl;
 }
 
+void Tower::askForUpgrade(){
+    QMessageBox msgBox;
+    msgBox.setText("The document has been modified.");
+    msgBox.exec();
+ }
 float Tower::getSpeedAttack() const
 {
     return speedAttack;

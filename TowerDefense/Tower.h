@@ -8,6 +8,7 @@
 #include <QObject>
 #include "iostream"
 #include "stdio.h"
+#include <QMessageBox>
 
 using namespace std;
 
@@ -24,6 +25,7 @@ public:
     int getLevel() const;
     void setLevel(int value);
     void printing();
+    void askForUpgrade();
 
 
 public slots:

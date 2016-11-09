@@ -1,4 +1,4 @@
-#include "ArchersTower.h"
+﻿#include "ArchersTower.h"
 
 
 extern Game* game;
@@ -51,8 +51,6 @@ void ArchersTower::fire()
 }
 
 
-
-
 int ArchersTower::getLvl() const{return lvl;}
 
 void ArchersTower::setLvl(int value){lvl = value;}
@@ -60,6 +58,15 @@ void ArchersTower::setLvl(int value){lvl = value;}
 void ArchersTower::upgrade(){
     if(!game->building){
         int nextLvl=getLvl()+1;
+        if (nextLvl>3){
+            cout<<"Nivel Maximo Alcanzado"<<endl;
+            return;
+        }
+        if(nextLvl==3){
+            QPixmap icon(":/images/ArcherUpgrade.png");
+            QPixmap resizeICon = icon.scaled(QSize(50,50),  Qt::IgnoreAspectRatio);
+            setPixmap(QPixmap(resizeICon));
+        }
         this->setLevel(nextLvl);
         setLvl(nextLvl);
         cout<<"se actualizo"<<endl;
@@ -68,34 +75,5 @@ void ArchersTower::upgrade(){
 
 }
 
-void ArchersTower::askForUpgrade(){
-    QMessageBox msgBox;
-     msgBox.setWindowTitle("Upgrade");
-     msgBox.setIcon(QMessageBox::Question);
-     msgBox.setText("Do you want to upgrade this Tower to lvl ");
-     msgBox.setInformativeText("It costs 150 gold");
-     msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-     msgBox.setDefaultButton(QMessageBox::No);
-     if(msgBox.exec() == QMessageBox::Yes){
-             QMessageBox info;
-             info.setWindowTitle("Congrats !!");
-             info.setIcon(QMessageBox::Information);
-             info.setText("Successful progress update");
-             info.exec();
-             upgrade();
-         }
-         else{
-             QMessageBox info;
-             info.setWindowTitle("Not enough gold");
-             info.setIcon(QMessageBox::Information);
-             info.setText("You dont have enough gold to upgrade this tower");
-             info.setInformativeText("It costs  gold, and you have ");
-             info.setStandardButtons(QMessageBox::Ok);
-             info.setDefaultButton(QMessageBox::Ok);
-             info.exec();
-         }
- }
-
-
-void ArchersTower::mousePressEvent(QGraphicsSceneMouseEvent *event){this->askForUpgrade();}
+void ArchersTower::mousePressEvent(QGraphicsSceneMouseEvent *event){this->upgrade();}
 void ArchersTower::aquire_target(){Tower::aquire_target();}

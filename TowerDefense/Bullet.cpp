@@ -16,6 +16,7 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent){
     // initialize values
     maxRange = 100;
     distanceTravelled = 0;
+    power=1;
 }
 
 void Bullet::move(){
@@ -25,7 +26,7 @@ void Bullet::move(){
         if (typeid(*(colliding_items[i]))==typeid(Enemy)){
             //increase the score
             Enemy* flag= dynamic_cast<Enemy*>(colliding_items[i]);
-            flag->setLife(flag->getLife()-1);
+            flag->setLife(flag->getLife()-power);
             scene()->removeItem(this);
             delete this;
             if(flag->getLife()==0){
@@ -34,9 +35,63 @@ void Bullet::move(){
                 game->coinValue->increase();
                 return;
             }
-   return;}}
+   return;}
+       else if (typeid(*(colliding_items[i]))==typeid(Elf)){
+            //increase the score
+            Elf* flag= dynamic_cast<Elf*>(colliding_items[i]);
+            flag->setVida(flag->getVida()-power);
+            scene()->removeItem(this);
+            delete this;
+            if(flag->getVida()==0){
+                flag->deleteEnemy();
+                game->score->increase();
+                game->coinValue->increase();
+                return;
+            }
+   return;}
+        else if (typeid(*(colliding_items[i]))==typeid(Ogres)){
+             //increase the score
+             Ogres* flag= dynamic_cast<Ogres*>(colliding_items[i]);
+             flag->setVida(flag->getVida()-power);
+             scene()->removeItem(this);
+             delete this;
+             if(flag->getVida()==0){
+                 flag->deleteEnemy();
+                 game->score->increase();
+                 game->coinValue->increase();
+                 return;
+             }
+    return;}
+        else if (typeid(*(colliding_items[i]))==typeid(Mercenary)){
+             //increase the score
+             Mercenary* flag= dynamic_cast<Mercenary*>(colliding_items[i]);
+             flag->setVida(flag->getVida()-power);
+             scene()->removeItem(this);
+             delete this;
+             if(flag->getVida()==0){
+                 flag->deleteEnemy();
+                 game->score->increase();
+                 game->coinValue->increase();
+                 return;
+             }
+    return;}
+        else if (typeid(*(colliding_items[i]))==typeid(Harpy)){
+             //increase the score
+             Harpy* flag= dynamic_cast<Harpy*>(colliding_items[i]);
+             flag->setVida(flag->getVida()-power);
+             scene()->removeItem(this);
+             delete this;
+             if(flag->getVida()==0){
+                 flag->deleteEnemy();
+                 game->score->increase();
+                 game->coinValue->increase();
+                 return;
+             }
+    return;}
 
-    int STEP_SIZE = 30;
+    }
+
+    STEP_SIZE = 30;
     double theta = rotation(); // degrees
     double dy = STEP_SIZE * qSin(qDegreesToRadians(theta));
     double dx = STEP_SIZE * qCos(qDegreesToRadians(theta));
