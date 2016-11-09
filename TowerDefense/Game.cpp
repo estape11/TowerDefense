@@ -31,7 +31,7 @@ Game::Game(): QGraphicsView(){
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    //play background music
+    //play background music, DOESNT WORK O UBUNTU
 
     QMediaPlayer * music = new QMediaPlayer();
     music->setMedia(QUrl("qrc:/sounds/backgroundSound.mp3"));
