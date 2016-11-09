@@ -66,9 +66,59 @@ void Mercenary::move_forward(){
     //destination+=60;
 }
 
+int Mercenary::getVelocidad() const
+{
+    return velocidad;
+}
+
+void Mercenary::setVelocidad(int value)
+{
+    velocidad = value;
+}
+
+int Mercenary::getResisMagia() const
+{
+    return resisMagia;
+}
+
+void Mercenary::setResisMagia(int value)
+{
+    resisMagia = value;
+}
+
+int Mercenary::getResisFlechas() const
+{
+    return resisFlechas;
+}
+
+void Mercenary::setResisFlechas(int value)
+{
+    resisFlechas = value;
+}
+
+int Mercenary::getResisArti() const
+{
+    return resisArti;
+}
+
+void Mercenary::setResisArti(int value)
+{
+    resisArti = value;
+}
+
+int Mercenary::getVida() const
+{
+    return vida;
+}
+
+void Mercenary::setVida(int value)
+{
+    vida = value;
+}
+
 //int Enemy::Pathfinding[](int x,int y)
 //{
-  //  game->mapStatus;
+//  game->mapStatus;
 //}
 
 ////////////GETTERS & SETTERS///////////

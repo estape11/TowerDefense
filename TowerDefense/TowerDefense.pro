@@ -34,7 +34,9 @@ SOURCES += main.cpp\
     BuildMagicianTower.cpp \
     MagicianTower.cpp \
     node.cpp \
-    PathfindingAlgorithm.cpp
+    PathfindingAlgorithm.cpp \
+    Elf.cpp \
+    Harpy.cpp
 
 HEADERS  += mainwindow.h \
     Enemy.h \
@@ -55,7 +57,9 @@ HEADERS  += mainwindow.h \
     BuildMagicianTower.h \
     MagicianTower.h \
     node.h \
-    PathfindingAlgorithm.h
+    PathfindingAlgorithm.h \
+    Elf.h \
+    Harpy.h
 
 FORMS    += mainwindow.ui
 

@@ -53,17 +53,9 @@ void ArchersTower::fire()
 
 
 
-int ArchersTower::getLvl() const
-{
-    return lvl;
-}
+int ArchersTower::getLvl() const{return lvl;}
 
-void ArchersTower::setLvl(int value){
-    lvl = value;
-}
-
-
-
+void ArchersTower::setLvl(int value){lvl = value;}
 
 void ArchersTower::upgrade(){
     if(!game->building){

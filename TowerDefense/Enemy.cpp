@@ -15,7 +15,6 @@ Enemy::Enemy (QList<QPointF> pointsToFollow, QGraphicsItem *parent):QObject(),QG
     QPixmap resizeOrc = orc.scaled(QSize(40,40), Qt::KeepAspectRatio);
     setPixmap(resizeOrc);
 
-
     // set points
     points << pointsToFollow;
     point_index = 0;
