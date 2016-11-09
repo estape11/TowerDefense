@@ -5,6 +5,11 @@
 #include <QObject>
 #include <QList> // list << element
 #include <QPointF>
+#include <string>
+#include <json.hpp>
+
+using json = nlohmann::json;
+using namespace std;
 
 class Elf: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
@@ -35,6 +40,7 @@ public:
     int getVelocidad() const;
     void setVelocidad(int value);
 
+    void setAtributos(json eneJson);
 public slots:
     void move_forward();
 private:
@@ -47,7 +53,6 @@ private:
     int resisFlechas;
     int resisMagia;
     int velocidad;
-
 };
 
 #endif // ELF_H

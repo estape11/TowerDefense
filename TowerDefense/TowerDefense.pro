@@ -59,7 +59,8 @@ HEADERS  += mainwindow.h \
     node.h \
     PathfindingAlgorithm.h \
     Elf.h \
-    Harpy.h
+    Harpy.h \
+    ../../../cURL-POST/json.hpp
 
 FORMS    += mainwindow.ui
 

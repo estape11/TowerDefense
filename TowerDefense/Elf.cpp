@@ -63,6 +63,14 @@ void Elf::move_forward(){
     setYp(this);
 }
 
+void Elf::setAtributos(json eneJson){
+    vida=eneJson["vida"];
+    velocidad=eneJson["velocidad"];
+    resisFlechas=eneJson["resisFlechas"];
+    resisMagia=eneJson["resisMagia"];
+    resisArti=eneJson["resisArti"];
+}
+
 ////////////GETTERS & SETTERS///////////
 
 int Elf::getLife() const{return life;}

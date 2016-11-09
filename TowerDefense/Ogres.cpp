@@ -23,7 +23,7 @@ Ogres::Ogres (QList<QPointF> pointsToFollow,QGraphicsItem *parent):QObject(),QGr
     rotateToPoint(dest);
 
     //set variables
-    life=10;
+    vida=10;
     xp=0;
     yp=0;
 
@@ -123,8 +123,6 @@ void Ogres::setVida(int value)
 
 ////////////GETTERS & SETTERS///////////
 
-int Ogres::getLife() const{return life;}
-void Ogres::setLife(int value){life = value;}
 int Ogres::getXp() {return xp;}
 int Ogres::getYp(){return yp;}
 void Ogres::setXp(Ogres* ogres){

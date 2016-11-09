@@ -23,7 +23,7 @@ Mercenary::Mercenary (QList<QPointF> pointsToFollow,QGraphicsItem *parent):QObje
     rotateToPoint(dest);
 
     //set variables
-    life=10;
+    vida=10;
     xp=0;
     yp=0;
 
@@ -119,8 +119,6 @@ void Mercenary::setVida(int value)
 
 ////////////GETTERS & SETTERS///////////
 
-int Mercenary::getLife() const{return life;}
-void Mercenary::setLife(int value){life = value;}
 int Mercenary::getXp() {return xp;}
 int Mercenary::getYp(){return yp;}
 void Mercenary::setXp(Mercenary* mercenary){ xp =mercenary->x();}
