@@ -32,7 +32,9 @@ SOURCES += main.cpp\
     CoinImage.cpp \
     CoinValue.cpp \
     BuildMagicianTower.cpp \
-    MagicianTower.cpp
+    MagicianTower.cpp \
+    node.cpp \
+    PathfindingAlgorithm.cpp
 
 HEADERS  += mainwindow.h \
     Enemy.h \
@@ -51,7 +53,9 @@ HEADERS  += mainwindow.h \
     CoinImage.h \
     CoinValue.h \
     BuildMagicianTower.h \
-    MagicianTower.h
+    MagicianTower.h \
+    node.h \
+    PathfindingAlgorithm.h
 
 FORMS    += mainwindow.ui
 

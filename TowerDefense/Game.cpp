@@ -12,6 +12,9 @@ Game::Game(): QGraphicsView(){
     // set the scene
     setScene(scene);
 
+    //pathfinding
+    PF = new PathfindingAlgorithm();
+
     // set cursor
     cursor = nullptr;
     building = nullptr;
@@ -66,13 +69,14 @@ Game::Game(): QGraphicsView(){
     bFlag=nullptr;
 }
 
+
+
 void Game::setCursor(QString filename){
     // if there is already a cursor, remove it first
     if (cursor){
         scene->removeItem(cursor);
         delete cursor;
     }
-
     QPixmap tower(filename);
     QPixmap resizeTower = tower.scaled(QSize(60,60),  Qt::KeepAspectRatio);
     cursor = new QGraphicsPixmapItem();
@@ -88,6 +92,7 @@ void Game::mouseMoveEvent(QMouseEvent *event){
         cursor->setPos(event->x(),event->y());
     }
 }
+
 
 void Game::mousePressEvent(QMouseEvent *event){
     // if we are building
@@ -191,6 +196,7 @@ void Game::initializeMapStatus()
     updateMapStatus(3,1,false);
     updateMapStatus(3,2,false);
     printMapStatus();
+    this->PF->pathFinding(19,10,2,3,this->mapStatus);
 }
 
 void Game::createButtom(int x, int y,Tower* pcursor){

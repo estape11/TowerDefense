@@ -28,6 +28,7 @@
 #include <QMessageBox>
 #include "BuildMagicianTower.h"
 #include "MagicianTower.h"
+#include "PathfindingAlgorithm.h"
 using namespace std;
 
 class Game: public QGraphicsView{
@@ -46,6 +47,7 @@ public:
     int getCurrentBuildingPosY(Tower* building);
     void printMapStatus();
     void initializeMapStatus();
+    PathfindingAlgorithm * PF;
     // member attributes
     QGraphicsScene * scene;
     QGraphicsPixmapItem * cursor;
@@ -59,9 +61,10 @@ public:
     int maxNumberOfEnemies;
     int waves;
     QList<QPointF> pointsToFollow;
-    bool mapStatus[11][20];
+    int mapStatus[20][11];
     QPushButton* bFlag;
     void createButtom(int x, int y,Tower* pcursor);
+
 
 
 public slots:
