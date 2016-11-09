@@ -14,7 +14,7 @@ Game::Game(): QGraphicsView(){
     setScene(scene);
 
     //pathfinding
-    PF = new PathfindingAlgorithm();
+    //*****PF = new PathfindingAlgorithm();
 
     // set cursor
     cursor = nullptr;
@@ -197,7 +197,7 @@ void Game::initializeMapStatus()
     updateMapStatus(3,1,false);
     updateMapStatus(3,2,false);
     printMapStatus();
-    this->PF->pathFinding(19,10,2,3,this->mapStatus);
+    //******this->PF->pathFinding(19,10,2,3,this->mapStatus);
 }
 
 void Game::createButtom(int x, int y,Tower* pcursor){
