@@ -58,7 +58,34 @@ void MagicianTower::upgrade()
     }
 
 }
+void MagicianTower::askForUpgrade(){
+    QMessageBox msgBox;
+         msgBox.setWindowTitle("Upgrade");
+         msgBox.setIcon(QMessageBox::Question);
+         msgBox.setText("Do you want to upgrade this Tower to lvl ");
+         msgBox.setInformativeText("It costs 150 gold");
+         msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+         msgBox.setDefaultButton(QMessageBox::No);
+         if(msgBox.exec() == QMessageBox::Yes){
+                 QMessageBox info;
+                 info.setWindowTitle("Congrats !!");
+                 info.setIcon(QMessageBox::Information);
+                 info.setText("Successful progress update");
+                 info.exec();
+                 upgrade();
+             }
+             else{
+                 QMessageBox info;
+                 info.setWindowTitle("Not enough gold");
+                 info.setIcon(QMessageBox::Information);
+                 info.setText("You dont have enough gold to upgrade this tower");
+                 info.setInformativeText("It costs  gold, and you have ");
+                 info.setStandardButtons(QMessageBox::Ok);
+                 info.setDefaultButton(QMessageBox::Ok);
+                 info.exec();
+             }
+}
 
-void MagicianTower::mousePressEvent(QGraphicsSceneMouseEvent *event){this->upgrade();}
+void MagicianTower::mousePressEvent(QGraphicsSceneMouseEvent *event){this->askForUpgrade();}
 
 void MagicianTower::aquire_target(){Tower::aquire_target();}
