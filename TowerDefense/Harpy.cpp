@@ -24,7 +24,6 @@ Harpy::Harpy (QList<QPointF> pointsToFollow,QGraphicsItem *parent):QObject(),QGr
     rotateToPoint(dest);
 
     //set variables
-    life=10;
     xp=0;
     yp=0;
 
@@ -119,9 +118,6 @@ void Harpy::setVida(int value)
 
 
 ////////////GETTERS & SETTERS///////////
-
-int Harpy::getLife() const{return life;}
-void Harpy::setLife(int value){life = value;}
 int Harpy::getXp() {return xp;}
 int Harpy::getYp(){return yp;}
 void Harpy::setXp(Harpy* harpy){xp =harpy->x();}

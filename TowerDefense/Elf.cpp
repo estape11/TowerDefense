@@ -23,7 +23,6 @@ Elf::Elf (QList<QPointF> pointsToFollow,QGraphicsItem *parent):QObject(),QGraphi
     rotateToPoint(dest);
 
     //set variables
-    life=10;
     xp=0;
     yp=0;
 
@@ -72,9 +71,6 @@ void Elf::setAtributos(json eneJson){
 }
 
 ////////////GETTERS & SETTERS///////////
-
-int Elf::getLife() const{return life;}
-void Elf::setLife(int value){life = value;}
 int Elf::getXp() {return xp;}
 int Elf::getYp(){return yp;}
 void Elf::setXp(Elf* elf){xp =elf->x();}
