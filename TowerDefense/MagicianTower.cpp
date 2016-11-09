@@ -6,6 +6,7 @@
 extern Game *game;
 
 MagicianTower::MagicianTower(QGraphicsItem *parent){
+    setLvl(1);
     QTimer *timer = new QTimer(this);
     connect (timer, SIGNAL(timeout()),this,SLOT(aquire_target()));
     timer->start(1000);
@@ -32,5 +33,32 @@ void MagicianTower::fire(){
     game->scene->addItem(bullet);
 }
 
+
+
+int MagicianTower::getLvl() const
+{
+    return lvl;
+}
+
+void MagicianTower::setLvl(int value)
+{
+    lvl = value;
+}
+
+
+
+void MagicianTower::upgrade()
+{
+    if(!game->building){
+        int nextLvl=getLvl()+1;
+        this->setLevel(nextLvl);
+        setLvl(nextLvl);
+        cout<<"se actualizo"<<endl;
+        this->printing();
+    }
+
+}
+
+void MagicianTower::mousePressEvent(QGraphicsSceneMouseEvent *event){this->upgrade();}
 
 void MagicianTower::aquire_target(){Tower::aquire_target();}

@@ -63,13 +63,9 @@ public:
     QList<QPointF> pointsToFollow;
     int mapStatus[20][11];
     QPushButton* bFlag;
-    void createButtom(int x, int y,Tower* pcursor);
-
-
 
 public slots:
     void spawnEnemy();
-    void handleButton();
 
 };
 

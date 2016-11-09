@@ -96,3 +96,31 @@ void Tower::aquire_target(){
         fire();
     }
 }
+
+
+
+
+int Tower::getLevel() const
+{
+    return level;
+}
+
+void Tower::setLevel(int value)
+{
+    level = value;
+}
+
+void Tower::printing()
+{
+    cout<<"Esta torre tiene lvl: "<<getLevel()<<endl;
+}
+
+float Tower::getSpeedAttack() const
+{
+    return speedAttack;
+}
+
+void Tower::setSpeedAttack(float value)
+{
+    speedAttack = value;
+}

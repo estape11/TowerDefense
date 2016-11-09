@@ -1,7 +1,6 @@
 #ifndef ARCHERSTOWER_H
 #define ARCHERSTOWER_H
 
-
 #include "Tower.h"
 #include "Game.h"
 #include <QTimer>
@@ -16,7 +15,13 @@ class ArchersTower: public Tower{
 
 public:
     ArchersTower(QGraphicsItem * parent=0);
+    void upgrade();
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void fire();
+    int lvl;
+    int getLvl() const;
+    void setLvl(int value);
+    void askForUpgrade();
 public slots:
     void aquire_target();
 };

@@ -21,7 +21,7 @@ Game::Game(): QGraphicsView(){
     building = nullptr;
     building2=nullptr;
     setMouseTracking(true);
-    waves=10;
+    waves=3;
 
     initializeMapStatus();
 
@@ -102,7 +102,6 @@ void Game::mousePressEvent(QMouseEvent *event){
         QList<QGraphicsItem *> items = cursor->collidingItems();
         for (size_t i = 0, n = items.size(); i < n; i++){
             if (dynamic_cast<Tower*>(items[i])){
-                building2=(dynamic_cast<Tower*>(items[i]));
                 return;
             }
         }
@@ -122,7 +121,6 @@ void Game::mousePressEvent(QMouseEvent *event){
         int xp=event->x()-((event->x()%60));
         int yp=event->y()-((event->y()%60));
 
-        createButtom(xp,yp,building2);
 
         cursor = nullptr;
         building = nullptr;
@@ -200,48 +198,11 @@ void Game::initializeMapStatus()
     //******this->PF->pathFinding(19,10,2,3,this->mapStatus);
 }
 
-void Game::createButtom(int x, int y,Tower* pcursor){
-
-
-    QPixmap to(":/images/ArtilleroGeneticKingdom.png");
-    QPixmap resizeTo = to.scaled(QSize(60,60),  Qt::IgnoreAspectRatio);
-    QIcon ButtonIcon(resizeTo);
-    bFlag= new QPushButton("", this);
-
-    QPalette pal = bFlag->palette();
-    pal.setColor(QPalette::Button, QColor(Qt::transparent));
-
-    bFlag->setAutoFillBackground(true);
-
-    bFlag->setPalette(pal);
-    bFlag->setGeometry(QRect(QPoint(x,y),QSize(60, 60)));
-    bFlag->setIcon(ButtonIcon);
-    bFlag->setIconSize(resizeTo.rect().size());
-    bFlag->setFixedSize(resizeTo.rect().size());
-    bFlag->setFlat(true);
-    bFlag->update();
-    cout<<"BITON"<<endl;
-    bFlag->show();
-    connect(bFlag, SIGNAL (released()), this, SLOT (handleButton()));
-    bFlag=nullptr;
-
-
-}
-
-void Game::handleButton(){
-    InfernalTower* boob=(dynamic_cast<InfernalTower*>(building2));
-    boob->printmessage();
-    building=nullptr;
-}
-
 
 void Game::spawnEnemy(){
     //span an enemy
     Enemy* enemy=new Enemy(pointsToFollow);
-    Mercenary* mercenary=new Mercenary(pointsToFollow);
     enemy->setPos(pointsToFollow[0]);
-    mercenary->setPos(pointsToFollow[0]);
-    scene->addItem(mercenary);
     scene->addItem(enemy);
     enemiesSpawned+=1;
     if (enemiesSpawned>=maxNumberOfEnemies){

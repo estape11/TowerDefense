@@ -15,7 +15,14 @@ class MagicianTower: public Tower{
     Q_OBJECT
 public:
     MagicianTower(QGraphicsItem *parent=0);
+    void upgrade();
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void fire();
+    int lvl;
+    int getLvl() const;
+    void setLvl(int value);
+
+
 public slots:
     void aquire_target();
 };
